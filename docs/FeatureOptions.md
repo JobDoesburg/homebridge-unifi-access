@@ -75,12 +75,13 @@ These option(s) apply to: Access controllers.
 
 These option(s) apply to: UniFi Access hub.
 
-| Option                                           | Description
-|--------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-| `Hub.LockDelayInterval<I>.Value</I>`             | Delay, in minutes, before locking the door lock relay, once it's been unlocked by HomeKit. If set to 0, it will remain unlocked indefinitely. By default, the door lock relay will lock five seconds after unlocking. **(default: 0)**.
-| `Hub.Lock.Trigger`                               | Add a switch accessory to control the lock. This can be useful in automation scenarios where you want to work around HomeKit's security restrictions for controlling locks and triggering events when a lock or unlock event occurs. **(default: disabled)**.
-| `Hub.Doorbell`                                   | Add a doorbell accessory to handle doorbell ring events in HomeKit. **(default: enabled)**. <BR>*Supported on Access hubs that have a doorbell.*
-| `Hub.Doorbell.Trigger`                           | Add a switch accessory for automation scenarios to reflect (but not trigger) doorbell ring events on an Access doorbell. **(default: disabled)**. <BR>*Supported on Access hubs that have a doorbell.*
+| Option                               | Description
+|--------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+| `Hub.LockDelayInterval<I>.Value</I>` | Delay, in minutes, before locking the door lock relay, once it's been unlocked by HomeKit. If set to 0, it will remain unlocked indefinitely. By default, the door lock relay will lock five seconds after unlocking. **(default: 0)**.
+| `Hub.Lock.Trigger`                   | Add a switch accessory to control the lock. This can be useful in automation scenarios where you want to work around HomeKit's security restrictions for controlling locks and triggering events when a lock or unlock event occurs. **(default: disabled)**.
+| `Hub.Doorbell`                       | Add a doorbell accessory to handle doorbell ring events in HomeKit. **(default: enabled)**. <BR>*Supported on Access hubs that have a doorbell.*
+| `Hub.Doorbell.Trigger`               | Add a switch accessory for automation scenarios to reflect (but not trigger) doorbell ring events on an Access doorbell. **(default: disabled)**. <BR>*Supported on Access hubs that have a doorbell.*
+| `Hub.Doorbell.DoorGuardIds`          | Only notify doorbell rings for any of these doorguard ids (comma separated). **(default: disabled)**. <BR>*Supported on Access hubs that have a doorbell.*
 
 #### <A NAME="log"></A>Logging feature options.
 

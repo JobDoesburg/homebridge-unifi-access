@@ -13,6 +13,7 @@ export class AccessHub extends AccessDevice {
   private _hkLockState: CharacteristicValue;
   private doorbellRingRequestId: string | null;
   private lockDelayInterval: number | undefined;
+  private doorGuardIds: string[] | undefined;
   public uda: AccessDeviceConfig;
 
   // Create an instance.
@@ -23,6 +24,7 @@ export class AccessHub extends AccessDevice {
     this.uda = device;
     this._hkLockState = this.hubLockState;
     this.lockDelayInterval = this.getFeatureNumber("Hub.LockDelayInterval");
+    this.doorGuardIds = this.getFeatureValue("Hub.Doorbell.DoorGuardIds")?.split(",").map(x => x.trim());
     this.doorbellRingRequestId = null;
 
     // If we attempt to set the delay interval to something invalid, then assume we are using the default unlock behavior.
@@ -475,6 +477,11 @@ export class AccessHub extends AccessDevice {
 
         // Process an Access ring event if we're the intended target.
         if((packet.data as AccessEventDoorbellRing).connected_uah_id !== this.uda.unique_id) {
+
+          break;
+        }
+
+        if(this.doorGuardIds && !this.doorGuardIds.some(id => (packet.data as AccessEventDoorbellRing).door_guard_ids.includes(id))) {
 
           break;
         }
