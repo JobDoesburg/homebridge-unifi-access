@@ -3,7 +3,7 @@
  * settings.ts: Settings and constants for homebridge-unifi-access.
  */
 // The name of our plugin.
-export const PLUGIN_NAME = "homebridge-unifi-access";
+export const PLUGIN_NAME = "homebridge-unifi-access-job";
 
 // The platform the plugin creates.
 export const PLATFORM_NAME = "UniFi Access";
